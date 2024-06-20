@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         topBound = 14.0f;
         bottomBound = 0.0f;
-        name = "ving";
+        name = MenuHandler.Instance.inputField.text;
     }
 
     // Update is called once per frame
