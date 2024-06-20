@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animal : MonoBehaviour
+public abstract class Animal : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // ENCAPSULATION
+    protected int point { get; set; }
+
+    protected PlayerController playerController;
+
+    private void Awake()
     {
-        
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void addPoint()
     {
-        
+        playerController.points += point;
+        makeSound();
     }
+
+    public void minusPoint()
+    {
+        playerController.points -= point;
+        makeSound();
+    }
+
+    protected abstract void makeSound();
 }
